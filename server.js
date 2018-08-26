@@ -2,6 +2,8 @@
 
 var express = require('express');
 var cors = require('cors');
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' });
 
 // require and use "multer"...
 
@@ -14,7 +16,8 @@ app.get('/', function (req, res) {
      res.sendFile(process.cwd() + '/views/index.html');
   });
 
-app.get('/hello', function(req, res){
+app.post('/api/fileanalyse', upload.single('upfile'), function(req, res){
+  console.log(req.)
   res.json({greetings: "Hello, API"});
 });
 
